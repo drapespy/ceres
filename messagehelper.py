@@ -8,7 +8,7 @@ client = commands.Bot(command_prefix = 'm.')
 async def on_ready():
     print('Bot is now Online!')
 
-@bot.event
+@client.event
 async def on_ready():
     activity = discord.Game(name="Deleting Messages", type=3)
     await bot.change_presence(status=discord.Status.online, activity=activity)
