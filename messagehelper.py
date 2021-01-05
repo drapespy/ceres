@@ -11,7 +11,7 @@ async def on_ready():
 @client.event
 async def on_ready():
     activity = discord.Game(name="Deleting Messages", type=3)
-    await bot.change_presence(status=discord.Status.online, activity=activity)
+    await client.change_presence(status=discord.Status.online, activity=activity)
 
 @client.command()
 async def ping(ctx):
