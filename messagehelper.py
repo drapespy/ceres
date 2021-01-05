@@ -8,6 +8,11 @@ client = commands.Bot(command_prefix = 'm.')
 async def on_ready():
     print('Bot is now Online!')
 
+@bot.event
+async def on_ready():
+    activity = discord.Game(name="Deleting Messages", type=3)
+    await bot.change_presence(status=discord.Status.online, activity=activity)
+
 @client.command()
 async def ping(ctx):
     await ctx.send(f'The Bots ping is {round(client.latency * 1000)}ms')
