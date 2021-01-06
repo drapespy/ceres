@@ -19,7 +19,7 @@ async def ping(ctx):
 
 @client.command()
 async def embed(ctx):
-    embed = discord.Embed(Title = "Test Embed" , color = 0x7289DA)
+    embed = discord.Embed(Title = "MessageHelper Commands" , color = 0x7289DA)
     embed.add_field(name= "Clear {num of msg}" , value= "- Deletes The Given Amount Of Messages")
     await ctx.send(embed=embed)
 
