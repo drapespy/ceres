@@ -17,10 +17,4 @@ async def on_ready():
 async def ping(ctx):
     await ctx.send(f'The Bots ping is {round(client.latency * 1000)}ms')
 
-@client.command()
-async def embed(ctx):
-    embed = discord.Embed(Title = "MessageHelper Commands" , color = 0x7289DA)
-    embed.add_field(name= "Clear {num of msg}" , value= "- Deletes The Given Amount Of Messages")
-    await ctx.send(embed=embed)
-
 client.run('Nzg0MTY2MDE0NDc2NjE1Njkx.X8lVgg.f62CYt-37qsOxiihDM828TXuawM')
