@@ -15,7 +15,7 @@ async def on_ready():
 
 @client.command()
 async def commands(ctx):
-    await ctx.send('`m.help` - Shows This Help Message\n`m.ping` - Shows the bots latency')
+    await ctx.send('`m.commands` - Shows This Help Message\n`m.ping` - Shows the bots latency')
 
 @client.command()
 async def ping(ctx):
