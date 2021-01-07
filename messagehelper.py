@@ -6,9 +6,9 @@ client = commands.Bot(command_prefix = 'm.')
 
 @client.event
 async def on_ready():
-    activity = discord.(name="m.commands", type=3)
-await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="m.commands"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="m.commands"))
     print("Bot is ready!")
+
 
 @client.command()
 async def commands(ctx):
