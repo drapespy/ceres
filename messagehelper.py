@@ -14,7 +14,7 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=activity)
 
 @client.command()
-async def help(ctx):
+async def commands(ctx):
     await ctx.send('`m.help` - Shows This Help Message\n`m.ping` - Shows the bots latency')
 
 @client.command()
