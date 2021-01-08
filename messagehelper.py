@@ -13,7 +13,11 @@ async def on_ready():
 
 @client.command()
 async def help(ctx):
-    await ctx.send('`m.help` - Shows This Help Message\n`m.ping` - Shows the bots latency')
+    await ctx.send('**__Stats__**\n`m.help` - Shows This Help Message\n`m.ping` - Shows the bots latency\n**__Messages__**\n`m.purge <amount>` - Clears the given amount of messages!')
+
+@client.command(aliases=['clear'])
+async def purge(ctx, amount=2):
+    await ctx.channel.purge(limit=amount)
 
 @client.command()
 async def ping(ctx):
