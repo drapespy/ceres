@@ -28,7 +28,7 @@ async def ping(ctx):
     await ctx.send(f"`Pinging...`\nMessageHelper's current ping is **{round(client.latency * 1000)}**ms")
 
 @clear.error
-async def clear_error(ctx, error):
+async def purge_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send(':x: Please specify a number of messages to delete.')
 
