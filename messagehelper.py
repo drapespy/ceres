@@ -7,13 +7,13 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="m.commands"))
+    await bot.change_presence(activity=discord.Game(name="m.help | dsc.gg/xydev"))
     print("Bot is ready!")
 
 
 @client.command()
-async def commands(ctx):
-    await ctx.send('`m.commands` - Shows This Help Message\n`m.ping` - Shows the bots latency')
+async def help(ctx):
+    await ctx.send('`m.help` - Shows This Help Message\n`m.ping` - Shows the bots latency')
 
 @client.command()
 async def ping(ctx):
