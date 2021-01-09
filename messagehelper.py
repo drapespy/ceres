@@ -18,7 +18,9 @@ async def on_command_error(ctx, error):
 
 @client.command(aliases=['commands'])
 async def help(ctx):
-    embed=discord.Embed(title="Help", description="```m.help - Shows this message.```\n```m.ping - Sends the bot's latency.```\n```m.purge [num] - Deletes the given amount of messages.```", color=0x7289DA)
+    embed = discord.Embed(title = "Help" , color = 0x7289DA )
+    embed.add_field(name= f"m.help" , value= "```Shows this message. ```" , inline=true)
+    embed.add_field(name= f"m.ping" , value= "```Sends the latency of the bot.```" , inline=true)
     await ctx.send(embed=embed)
 
 @client.command(aliases=['clear'])
