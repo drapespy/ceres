@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 import datetime
+import asyncio
+import sleep
 
 client = commands.Bot(command_prefix = 'm.')
 client.remove_command("help")
@@ -25,8 +27,10 @@ async def purge(ctx, amount : int):
     await ctx.channel.purge(limit=amount)
 
 @client.command()
-async def ping(ctx):
-    await ctx.send(f"`Pinging...`\nMessageHelper's current ping is **{round(client.latency * 1000)}**ms")
+async def test(ctx):
+  message = await ctx.send("`Pinging...`")
+  await asyncio.sleep(1)
+  await message.edit(content=f"MessageHelper's current ping is **{round(client.latency * 1000)}**ms")
 
 @purge.error
 async def purge_error(ctx, error):
