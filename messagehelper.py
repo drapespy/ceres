@@ -15,9 +15,11 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send(':x: That is not a valid command')
 
-@client.command()
+@client.command(aliases=['commands'])
 async def help(ctx):
-    await ctx.send('**__Stats__**\n`m.help` - Shows This Help Message\n`m.ping` - Shows the bots latency\n**__Messages__**\n`m.purge <amount>` - Clears the given amount of messages!')
+    embed = discord.Embed(color = 0x7289DA )
+    embed.add_field(name= "`m.help" , value= "- Shows this message. " , inline=true)
+    embed.add_field(name= "`m.ping`" , value= "- Sends the latency of the bot.")
 
 @client.command(aliases=['clear'])
 async def purge(ctx, amount : int):
