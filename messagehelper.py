@@ -20,6 +20,7 @@ async def help(ctx):
     embed = discord.Embed(title = "Help" , color = 0x7289DA )
     embed.add_field(name= "`m.help" , value= "- Shows this message. " , inline=true)
     embed.add_field(name= "`m.ping`" , value= "- Sends the latency of the bot." , inline=true)
+    embed.set_footer(text= 'My prefix is m.')
     await ctx.send(embed=embed)
 
 @client.command(aliases=['clear'])
