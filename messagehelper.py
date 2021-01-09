@@ -28,7 +28,7 @@ async def purge(ctx, amount : int):
 @client.command()
 async def ping(ctx):
   message = await ctx.send("`Pinging...`")
-  await asyncio.sleep(2)
+  await asyncio.sleep(1)
   await message.edit(content=f"MessageHelper's current ping is **{round(client.latency * 1000)}**ms")
 
 @purge.error
