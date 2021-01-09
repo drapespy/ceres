@@ -8,7 +8,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Game(name="Realease 40"))
+    await client.change_presence(activity=discord.Game(name="Version Alpha"))
     print("Bot is ready!")
 
 @client.event
@@ -18,9 +18,9 @@ async def on_command_error(ctx, error):
 
 @client.command(aliases=['commands'])
 async def help(ctx):
-    embed = discord.Embed(title = f"Help" , color = 0x7289DA )
-    embed.add_field(name= f"m.help" , value= f"```Shows this message. ```" , inline=true)
-    embed.add_field(name= f"m.ping" , value= f"```Sends the latency of the bot.```" , inline=true)
+    embed = discord.Embed(title = "Help" , color = 0x7289DA )
+    embed.add_field(name= "m.help" , value= f" - Shows this message." , inline=true)
+    embed.add_field(name= "m.ping" , value= f" - Sends the latency of the bot.```" , inline=true)
     await ctx.send(embed=embed)
 
 @client.command(aliases=['clear'])
