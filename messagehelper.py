@@ -19,7 +19,8 @@ async def on_command_error(ctx, error):
 async def help(ctx):
     embed = discord.Embed(color = 0x7289DA )
     embed.add_field(name= "`m.help" , value= "- Shows this message. " , inline=true)
-    embed.add_field(name= "`m.ping`" , value= "- Sends the latency of the bot.")
+    embed.add_field(name= "`m.ping`" , value= "- Sends the latency of the bot." , inline=true)
+    await ctx.send(embed=embed)
 
 @client.command(aliases=['clear'])
 async def purge(ctx, amount : int):
