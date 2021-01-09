@@ -25,7 +25,7 @@ async def help(ctx):
 
 @client.command()
 async def test(ctx):
-    embed=discord.Embed(title="Sample Embed", url="https://realdrewdata.medium.com/", description="This is an embed that will show how to build an embed and the different components", color=0xFF5733)
+    embed=discord.Embed(title="Sample Embed", description="```m.help - Shows this message.```\n```m.ping - Sends the bot's latency.```\n```m.purge [num] - Deletes the given amount of messages.", color=0x7289DA)
     await ctx.send(embed=embed)
 
 @client.command(aliases=['clear'])
