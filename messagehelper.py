@@ -22,7 +22,7 @@ async def help(ctx):
     embed.add_field(name="m.help", value="Shows this message.", inline=False)
     embed.add_field(name="m.ping", value="Sends the bot's latency.", inline=False)
     embed.add_field(name="m.purge [num]", value="Deletes the given amount of messages.", inline=False)
-    embed.set_footer(text="My prefix is m.help")
+    embed.set_footer(text="My prefix is m.")
     await ctx.send(embed=embed)
 
 @client.command(aliases=['clear'])
