@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands import MissingPermissions
+from discord.ext import commands
 import datetime
 import asyncio
 
