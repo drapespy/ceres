@@ -26,6 +26,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 @client.command(aliases=['clear'])
+@commands.has_permissions(manage_nessages=True)
 async def purge(ctx, amount : int):
     await ctx.channel.purge(limit=amount)
 
