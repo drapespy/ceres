@@ -8,7 +8,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Game(name="Visual Studio Code"))
+await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="m.help | dsc.gg/xydev"))
     print("Bot is ready!")
 
 @client.event
@@ -18,7 +18,7 @@ async def on_command_error(ctx, error):
 
 @client.command(aliases=['commands'])
 async def help(ctx):
-    embed=discord.Embed(title="Help", color=0x7289da)
+    embed=discord.Embed(title="", color=0x7289da)
     embed.add_field(name="m.help", value="Shows this message.", inline=False)
     embed.add_field(name="m.ping", value="Sends the bot's latency.", inline=False)
     embed.add_field(name="m.purge [num]", value="Deletes the given amount of messages.", inline=False)
