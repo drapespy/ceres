@@ -41,9 +41,4 @@ async def purge_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send(":x: `Please specify a number of messages to delete.`")
 
-@purge.error
-async def purge_error(ctx, error):
-    if isinstance(error, MissingPermissions):
-        await ctx.send (":x: `You do not have the permissions to execute this command.`")
-
 client.run('Nzg0MTY2MDE0NDc2NjE1Njkx.X8lVgg.f62CYt-37qsOxiihDM828TXuawM')
