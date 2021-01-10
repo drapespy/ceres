@@ -8,7 +8,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="m.help | dsc.gg/xydev"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="m.help | dsc.gg/xydev"))
     print("Bot is ready!")
 
 @client.event
