@@ -16,7 +16,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send(":x: `That is not a valid command.`")
 
-@client.command(aliases=['commands'])
+@client.command(aliases=['commands', 'cmds', 'cmnds', 'cmd', 'cmnd'])
 async def help(ctx):
     embed=discord.Embed(title="", color=0x7289da)
     embed.add_field(name="m.help", value="Shows this message.", inline=False)
