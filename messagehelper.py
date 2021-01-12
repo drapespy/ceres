@@ -27,7 +27,10 @@ async def help(ctx):
 
 @client.command()
 async def bhunkymunky(ctx):
-    await ctx.send(f"Subscribe to Bhunky Munky [here](https://www.youtube.com/channel/UCIN_VAFZhU6977tGmiVYlZg?sub_confirmation=1)")
+    embed=discord.Embed(title="Subscribe", description="Subscribe to Bhunk Munky [here](https://www.youtube.com/channel/UCIN_VAFZhU6977tGmiVYlZg?sub_confirmation=1)", color=0xff0000)
+    embed.set_thumbnail(url="https://images-ext-2.discordapp.net/external/oUnPdbEjX1Lt3X8k9qpyWv7WtE85WJroh4vtYvPLI6E/https/yt3.ggpht.com/ytc/AAUvwniq8P1kPeEdA2UMTGyOgo4cof7ex9OFVGd19wMA%3Ds900-c-k-c0x00ffffff-no-rj?width=610&height=610")
+    embed.set_footer(text="subscribe or die")
+    await ctx.send(embed=embed)
 
 @client.command(aliases=['clear'])
 @commands.has_permissions(manage_messages=True)
@@ -36,9 +39,9 @@ async def purge(ctx, amount : int):
 
 @client.command(aliases=['latency'])
 async def ping(ctx):
-  message = await ctx.send("`Pinging Server...`")
-  await asyncio.sleep(1)
-  await message.edit(content=f"MessageHelper's current ping is **{round(client.latency * 1000)}**ms")
+    message = await ctx.send("`Pinging Server...`")
+    await asyncio.sleep(1)
+    await message.edit(content=f"MessageHelper's current ping is **{round(client.latency * 1000)}**ms")
 
 @purge.error
 async def purge_error(ctx, error):
