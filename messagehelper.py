@@ -25,9 +25,9 @@ async def help(ctx):
     embed.set_footer(text="My prefix is m.")
     await ctx.send(embed=embed)
 
-@client.command
+@client.command()
 async def bhunkymunky(ctx):
-    await ctx.send('Subscribe to Bhunky Munky: https://www.youtube.com/channel/UCIN_VAFZhU6977tGmiVYlZg?sub_confirmation=1')
+    await ctx.send('Subscribe to Bhunky Munky [here](https://www.youtube.com/channel/UCIN_VAFZhU6977tGmiVYlZg?sub_confirmation=1)')
 
 @client.command(aliases=['clear'])
 @commands.has_permissions(manage_messages=True)
