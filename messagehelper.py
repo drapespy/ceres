@@ -41,7 +41,6 @@ async def on_guild_remove(guild):
 
 @client.command()
 async def prefix(ctx, prefix):
-    ctx.send(f"Prefix changed to {text}")
     with open('prefixes.json', 'r') as f:
         prefixes = json.load(f)
 
