@@ -5,12 +5,6 @@ import asyncio
 import random
 import json
 
-def get_prefix(client, message):
-    with open('prefixes.json', 'r') as f:
-        prefixes = json.load(f)
-
-    return prefixes[str(message.guild.id)]
-
 client = commands.Bot(command_prefix = get_prefix)
 client.remove_command("help")
 
@@ -20,36 +14,6 @@ async def on_ready():
     print("Bot is ready!")
 
 @client.event
-async def on_guild_join(guild):
-    with open('prefixes.json', 'r') as f:
-        prefixes = json.load(f)
-
-    prefixes[str(guild.id)] = 'm.'
-
-    with open('prefixes.json', 'w') as f:
-        json.dump(prefixes, f, indent=4)
-
-@client.event
-async def on_guild_remove(guild):
-    with open('prefixes.json', 'r') as f:
-        prefixes = json.load(f)
-
-    prefixes.pop(str(guild.id))
-
-    with open('prefixes.json', 'w') as f:
-        json.dump(prefixes, f, indent=4)
-
-@client.command()
-async def prefix(ctx, prefix):
-    with open('prefixes.json', 'r') as f:
-        prefixes = json.load(f)
-
-    prefixes[str(ctx.guild.id)] = prefix
-
-    with open('prefixes.json', 'w') as f:
-        json.dump(prefixes, f, indent=4)
-
-@client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("<:error:798368255991087125> `That is not a valid command.`")
@@ -57,10 +21,9 @@ async def on_command_error(ctx, error):
 @client.command(aliases=['commands', 'cmds', 'cmnds', 'cmd', 'cmnd'])
 async def help(ctx):
     embed=discord.Embed(title="", color=0x7289da)
-    embed.add_field(name="help", value="Shows this message.", inline=False)
+    embed.add_field(name="help", value="Shows this message.", inline=True)
     embed.add_field(name="ping", value="Sends the bot's latency.", inline=True)
     embed.add_field(name="purge (num)", value="Deletes the given amount of messages.", inline=False)
-    embed.add_field(name="prefix (new prefix)", value="Change the bot's prefix.", inline=True)
     await ctx.send(embed=embed)
 
 @client.command()
