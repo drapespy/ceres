@@ -5,8 +5,6 @@ import asyncio
 import random
 import json
 
-def get_prefix(client, message):
-
 client = commands.Bot(command_prefix = 'm.')
 client.remove_command("help")
 
@@ -26,7 +24,6 @@ async def help(ctx):
     embed.add_field(name="help", value="Shows this message.", inline=False)
     embed.add_field(name="ping", value="Sends the bot's latency.", inline=True)
     embed.add_field(name="purge (num)", value="Deletes the given amount of messages.", inline=False)
-    embed.set_footer(text="My prefix is {prefix}")
     await ctx.send(embed=embed)
 
 @client.command()
