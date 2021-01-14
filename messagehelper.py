@@ -41,6 +41,12 @@ async def purge(ctx, amount : int):
 async def penis(ctx):
     await ctx.send("penids\nhttps://tenor.com/view/penis-music-gif-17978040")
 
+
+@client.event
+async def on_message(message):
+     if "<@784166014476615691>" in message.content:
+           await ctx.send("Hi! I'm <@784166014476615691>! I am a simple but powerful discord bot. \nMy prefix is `m.`, you can get started by saying `m.help`'")
+
 @client.command(aliases=['latency'])
 async def ping(ctx):
     message = await ctx.send("`Pinging Server...`")
