@@ -44,7 +44,7 @@ async def penis(ctx):
 
 @client.event
 async def on_message(message):
-     if "<@784166014476615691>" in message.content:
+     if "@MessageHelper#3864" in message.content:
            await ctx.send("Hi! I'm <@784166014476615691>! I am a simple but powerful discord bot. \nMy prefix is `m.`, you can get started by saying `m.help`'")
 
 @client.command(aliases=['latency'])
