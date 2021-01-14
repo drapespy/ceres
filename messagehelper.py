@@ -41,6 +41,7 @@ async def on_guild_remove(guild):
 
 @client.command()
 async def prefix(ctx, prefix):
+    ctx.send(f"Prefix changed to {text}")
     with open('prefixes.json', 'r') as f:
         prefixes = json.load(f)
 
@@ -60,11 +61,12 @@ async def help(ctx):
     embed.add_field(name="help", value="Shows this message.", inline=False)
     embed.add_field(name="ping", value="Sends the bot's latency.", inline=True)
     embed.add_field(name="purge (num)", value="Deletes the given amount of messages.", inline=False)
+    embed.add_field(name="prefix (new prefix)", value="Change the bot's prefix.", inline=True)
     await ctx.send(embed=embed)
 
 @client.command()
 async def bhunkymunky(ctx):
-    embed=discord.Embed(title="Subscribe", description="Subscribe to Bhunk Munky [here](https://www.youtube.com/channel/UCIN_VAFZhU6977tGmiVYlZg?sub_confirmation=1)", color=0xff0000)
+    embed=discord.Embed(title="Subscribe", description="Subscribe to Bhunky Munky [here](https://www.youtube.com/channel/UCIN_VAFZhU6977tGmiVYlZg?sub_confirmation=1)", color=0xff0000)
     embed.set_thumbnail(url="https://images-ext-2.discordapp.net/external/oUnPdbEjX1Lt3X8k9qpyWv7WtE85WJroh4vtYvPLI6E/https/yt3.ggpht.com/ytc/AAUvwniq8P1kPeEdA2UMTGyOgo4cof7ex9OFVGd19wMA%3Ds900-c-k-c0x00ffffff-no-rj?width=610&height=610")
     embed.set_footer(text="subscribe or die")
     await ctx.send(embed=embed)
