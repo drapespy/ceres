@@ -3,7 +3,7 @@ from discord.ext import commands
 import datetime
 import asyncio
 
-client = commands.Bot(command_prefix = 'm.' , 'M.')
+client = commands.Bot(command_prefix = 'm.')
 client.remove_command("help")
 
 @client.event
