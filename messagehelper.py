@@ -5,7 +5,7 @@ import asyncio
 import random
 import json
 
-client = commands.Bot(command_prefix = get_prefix)
+client = commands.Bot(command_prefix = 'm.')
 client.remove_command("help")
 
 @client.event
