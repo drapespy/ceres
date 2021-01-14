@@ -46,7 +46,7 @@ async def penis(ctx):
 async def ping(ctx):
     message = await ctx.send("`Pinging Server...`")
     await asyncio.sleep(1)
-    await message.edit(content=f"MessageHelper's current ping is **{round(client.latency * 1000)}**ms")
+    await message.edit(content=f"MessageHelper's latency is **{round(client.latency * 1000)}**ms")
 
 @purge.error
 async def purge_error(ctx, error):
