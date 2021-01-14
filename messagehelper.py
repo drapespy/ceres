@@ -37,6 +37,10 @@ async def bhunkymunky(ctx):
 async def purge(ctx, amount : int):
     await ctx.channel.purge(limit=amount)
 
+@client.command()
+async def penis(ctx):
+    await ctx.send("penids\nhttps://tenor.com/view/penis-music-gif-17978040")
+
 @client.command(aliases=['latency'])
 async def ping(ctx):
     message = await ctx.send("`Pinging Server...`")
