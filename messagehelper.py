@@ -2,6 +2,10 @@ import discord
 from discord.ext import commands
 import datetime
 import asyncio
+import random
+import json
+
+def get_prefix(client, message):
 
 client = commands.Bot(command_prefix = 'm.')
 client.remove_command("help")
@@ -19,10 +23,10 @@ async def on_command_error(ctx, error):
 @client.command(aliases=['commands', 'cmds', 'cmnds', 'cmd', 'cmnd'])
 async def help(ctx):
     embed=discord.Embed(title="", color=0x7289da)
-    embed.add_field(name="m.help", value="Shows this message.", inline=False)
-    embed.add_field(name="m.ping", value="Sends the bot's latency.", inline=True)
-    embed.add_field(name="m.purge (num)", value="Deletes the given amount of messages.", inline=False)
-    embed.set_footer(text="My prefix is m.")
+    embed.add_field(name="help", value="Shows this message.", inline=False)
+    embed.add_field(name="ping", value="Sends the bot's latency.", inline=True)
+    embed.add_field(name="purge (num)", value="Deletes the given amount of messages.", inline=False)
+    embed.set_footer(text="My prefix is {prefix}")
     await ctx.send(embed=embed)
 
 @client.command()
