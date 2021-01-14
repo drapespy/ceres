@@ -41,7 +41,6 @@ async def purge(ctx, amount : int):
 async def penis(ctx):
     await ctx.send("penids\nhttps://tenor.com/view/penis-music-gif-17978040")
 
-
 @client.event
 async def on_message(message):
      if "@MessageHelper#3864" in message.content:
