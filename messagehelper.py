@@ -21,9 +21,11 @@ async def on_command_error(ctx, error):
 @client.command(aliases=['commands', 'cmds', 'cmnds', 'cmd', 'cmnd'])
 async def help(ctx):
     embed=discord.Embed(title="", color=0x7289da)
-    embed.add_field(name="```help```", value="Shows this message.", inline=True)
-    embed.add_field(name="```ping```", value="Sends the bot's latency.", inline=True)
-    embed.add_field(name="```purge (num)```", value="Deletes the given amount of messages.", inline=False)
+    embed.add_field(name="```m.help```", value="Shows this message.", inline=True)
+    embed.add_field(name="```m.ping```", value="Sends the bot's latency.", inline=True)
+    embed.add_field(name="```m.purge (num)```", value="Deletes the given amount of messages.", inline=False)
+    embed.add_field(name="```m.lock```", value="Locks the current channel for @everyone.")
+    embed.add_field(name="```m.unlock```", value="unlocks the current channel for @everyone.")
     await ctx.send(embed=embed)
 
 @client.command()
@@ -36,11 +38,11 @@ async def bhunkymunky(ctx):
 @client.command(aliases['close'])
 @commands.has_permissions(manage_channels=True)
 async def lock(ctx, channel : discord.TextChannel=None):
-channel = channel or ctx.channel
-overwrite = channel.overwrites_for(ctx.guild.default_role)
-overwrite.send_messages = False
-await channel.set_permissions(ctx.guild.default_role, overwrite=overwrite)
-await ctx.send('🔐 Channel locked.')
+    channel = channel or ctx.channel
+    overwrite = channel.overwrites_for(ctx.guild.default_role)
+    overwrite.send_messages = False
+    await channel.set_permissions(ctx.guild.default_role, overwrite=overwrite)
+    await ctx.send('🔐 Channel locked.')
 
 @client.command(aliases=['open'])
 @commands.has_permissions(manage_channels=True)
