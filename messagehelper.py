@@ -10,7 +10,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="for m.help | v1.085"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="for m.help | v1.086"))
     print("Bot is ready!")
 
 @client.event
@@ -32,7 +32,14 @@ async def help(ctx):
 async def bhunkymunky(ctx):
     embed=discord.Embed(title="Subscribe", description="Subscribe to Bhunky Munky [here](https://www.youtube.com/channel/UCIN_VAFZhU6977tGmiVYlZg?sub_confirmation=1)", color=0xff0000)
     embed.set_thumbnail(url="https://images-ext-2.discordapp.net/external/oUnPdbEjX1Lt3X8k9qpyWv7WtE85WJroh4vtYvPLI6E/https/yt3.ggpht.com/ytc/AAUvwniq8P1kPeEdA2UMTGyOgo4cof7ex9OFVGd19wMA%3Ds900-c-k-c0x00ffffff-no-rj?width=610&height=610")
-    embed.set_footer(text="subscribe or die")
+    embed.set_footer(text="subscribe or not cool monke")
+    await ctx.send(embed=embed)
+
+@client.command(aliases=['morgzmum'])
+async def morgz(ctx):
+    embed=discord.Embed(title="Morgz Mum", description="Subscribe to Morgz Mum [here](https://www.youtube.com/channel/UCqsUQhA6UIwSams54bEnCJw?sub_confirmation=1)", color=0xff0000)
+    embed.set_thumbnail(url="https://yt3.ggpht.com/ytc/AAUvwngshFr8zwbVJ5Tv8i9ZpaL11LFqlwX6DTHKoh_D=s88-c-k-c0x00ffffff-no-rj")
+    embed.set_footer(text="subscribe or not true morgz fan")
     await ctx.send(embed=embed)
 
 @client.command(aliases=['close'])
