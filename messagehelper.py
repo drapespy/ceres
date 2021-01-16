@@ -10,8 +10,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Game(name="m.help | v1.082"))
-
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="for m.help | v1.083"))
     print("Bot is ready!")
 
 @client.event
@@ -68,6 +67,16 @@ async def ping(ctx):
     message = await ctx.send("`Pinging Server...`")
     await asyncio.sleep(1)
     await message.edit(content=f"MessageHelper's latency is **{round(client.latency * 1000)}**ms")
+
+@lock.error
+async def lock_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("<:error:798368255991087125> `Missing required permissions. (Manage Channels)`")
+
+@lock.error
+async def lock_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("<:error:798368255991087125> `Missing required permissions. (Manage Channels)`")
 
 @purge.error
 async def purge_error(ctx, error):
