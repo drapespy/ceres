@@ -35,7 +35,7 @@ async def bhunkymunky(ctx):
     embed.set_footer(text="subscribe or die")
     await ctx.send(embed=embed)
 
-@client.command(aliases['close'])
+@client.command(aliases=['close'])
 @commands.has_permissions(manage_channels=True)
 async def lock(ctx, channel : discord.TextChannel=None):
     channel = channel or ctx.channel
@@ -47,11 +47,11 @@ async def lock(ctx, channel : discord.TextChannel=None):
 @client.command(aliases=['open'])
 @commands.has_permissions(manage_channels=True)
 async def unlock(ctx, channel : discord.TextChannel=None):
-channel = channel or ctx.channel
-overwrite = channel.overwrites_for(ctx.guild.default_role)
-overwrite.send_messages = True
-await channel.set_permissions(ctx.guild.default_role, overwrite=overwrite)
-await ctx.send('🔓 Channel unlocked.')
+    channel = channel or ctx.channel
+    overwrite = channel.overwrites_for(ctx.guild.default_role)
+    overwrite.send_messages = True
+    await channel.set_permissions(ctx.guild.default_role, overwrite=overwrite)
+    await ctx.send('🔓 Channel unlocked.')
 
 @client.command(aliases=['clear'])
 @commands.has_permissions(manage_messages=True)
