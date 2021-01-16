@@ -73,10 +73,10 @@ async def lock_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("<:error:798368255991087125> `Missing required permissions. (Manage Channels)`")
 
-@lock.error
-async def lock_error(ctx, error):
+@unlock.error
+async def unlock_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
-        await ctx.send("<:error:798368255991087125> `Missing required permissions. (Manage Channels)`")
+        await ctx.send("<:error:798368255991087125> `Missing required permissions. (Manage Channels).`")
 
 @purge.error
 async def purge_error(ctx, error):
