@@ -78,16 +78,18 @@ async def ping(ctx):
 @lock.error
 async def lock_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
-        await ctx.send("<:error:798368255991087125> `Missing required permissions. (Manage Channels)`")
+        await ctx.send("<:error:798368255991087125> `Missing required permissions: Manage Channels`")
 
 @unlock.error
 async def unlock_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
-        await ctx.send("<:error:798368255991087125> `Missing required permissions. (Manage Channels).`")
+        await ctx.send("<:error:798368255991087125> `Missing required permissions: Manage Channels`")
 
 @purge.error
 async def purge_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("<:error:798368255991087125> `Please specify a number of messages to delete.`")
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("<:error:798368255991087125> `Missing required permissions: Manage Messages`")
 
 client.run('Nzg0MTY2MDE0NDc2NjE1Njkx.X8lVgg.f62CYt-37qsOxiihDM828TXuawM')
