@@ -10,7 +10,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="for m.help | v1.088"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="for m.help | v1.089"))
     print("Bot is ready!")
 
 @client.event
@@ -81,9 +81,9 @@ async def aliases(ctx):
     embed=discord.Embed(title="Command Aliases", color=0x7289da)
     embed.add_field(name="```m.help```", value="commands, cmd, cmds, cmnd, cmnds", inline=False)
     embed.add_field(name="```m.ping```", value="latency", inline=False)
-    embed.add_field(name="```purge```", value="clear", inline=False)
-    embed.add_field(name="```lock```", value="close", inline=False)
-    embed.add_field(name="```unlock```", value="open", inline=False)
+    embed.add_field(name="```m.purge```", value="clear", inline=False)
+    embed.add_field(name="```m.lock```", value="close", inline=False)
+    embed.add_field(name="```m.unlock```", value="open", inline=False)
     await ctx.send(embed=embed)
 
 @lock.error
