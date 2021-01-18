@@ -4,13 +4,14 @@ import datetime
 import asyncio
 import random
 import json
+import os
 
 client = commands.Bot(command_prefix = 'm.')
 client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="for m.help | v1.089"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="for m.help | vBeta"))
     print("Bot is ready!")
 
 @client.event
@@ -25,9 +26,20 @@ async def help(ctx):
     embed.add_field(name="```m.ping```", value="Sends the bot's latency.", inline=True)
     embed.add_field(name="```m.aliases```", value="Shows the command aliases.", inline=True)
     embed.add_field(name="```m.purge (num)```", value="Deletes the given amount of messages.", inline=False)
-    embed.add_field(name="```m.lock```", value="Locks the current channel for @everyone.")
-    embed.add_field(name="```m.unlock```", value="unlocks the current channel for @everyone.")
+    embed.add_field(name="```m.lock```", value="Locks the current channel for @everyone.", inline=False)
+    embed.add_field(name="```m.unlock```", value="unlocks the current channel for @everyone.", inline=True)
+    embed.add_field(name="```m.say (msg)```", value="Have the bot say your message.", inline=False)
     await ctx.send(embed=embed)
+
+@client.command()
+async def say(ctx, arg):
+    await client.delete_message(ctx.message)
+    await ctx.send(arg)
+
+@say.error
+async def say_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("<:error:798368255991087125> `Please specify something to say.`")
 
 @client.command()
 async def bhunkymunky(ctx):
