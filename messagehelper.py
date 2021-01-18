@@ -26,7 +26,7 @@ async def help(ctx):
     embed.add_field(name="```m.ping```", value="Sends the bot's latency.", inline=True)
     embed.add_field(name="```m.aliases```", value="Shows the command aliases.", inline=True)
     embed.add_field(name="```m.purge (num)```", value="Deletes the given amount of messages.", inline=False)
-    embed.add_field(name="```m.lock```", value="Locks the current channel for @everyone.", inline=False)
+    embed.add_field(name="```m.lock```", value="Locks the current channel for @everyone.", inline=True)
     embed.add_field(name="```m.unlock```", value="unlocks the current channel for @everyone.", inline=True)
     await ctx.send(embed=embed)
 
