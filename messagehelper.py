@@ -33,7 +33,6 @@ async def help(ctx):
 
 @client.command()
 async def say(ctx, arg):
-    await client.delete_message(ctx.message)
     await ctx.send(arg)
 
 @say.error
