@@ -6,12 +6,12 @@ import random
 import json
 import os
 
-client = commands.Bot(command_prefix = 'm.')
+client = commands.Bot(command_prefix = 'c.')
 client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="for m.help | vBeta"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="the stars | c.help"))
     print("Bot is ready!")
 
 @client.event
@@ -22,12 +22,12 @@ async def on_command_error(ctx, error):
 @client.command(aliases=['commands', 'cmds', 'cmnds', 'cmd', 'cmnd'])
 async def help(ctx):
     embed=discord.Embed(title="", color=0x7289da)
-    embed.add_field(name="```m.help```", value="Shows this message.", inline=True)
-    embed.add_field(name="```m.ping```", value="Sends the bot's latency.", inline=True)
-    embed.add_field(name="```m.aliases```", value="Shows the command aliases.", inline=True)
-    embed.add_field(name="```m.purge (num)```", value="Deletes the given amount of messages.", inline=False)
-    embed.add_field(name="```m.lock```", value="Locks the current channel for @everyone.", inline=True)
-    embed.add_field(name="```m.unlock```", value="unlocks the current channel for @everyone.", inline=True)
+    embed.add_field(name="```c.help```", value="Shows this message.", inline=True)
+    embed.add_field(name="```c.ping```", value="Sends the bot's latency.", inline=True)
+    embed.add_field(name="```c.aliases```", value="Shows the command aliases.", inline=True)
+    embed.add_field(name="```c.purge (num)```", value="Deletes the given amount of messages.", inline=False)
+    embed.add_field(name="```c.lock```", value="Locks the current channel for @everyone.", inline=True)
+    embed.add_field(name="```c.unlock```", value="unlocks the current channel for @everyone.", inline=True)
     await ctx.send(embed=embed)
 
 @client.command()
@@ -75,16 +75,16 @@ async def penis(ctx):
 async def ping(ctx):
     message = await ctx.send("`Pinging Server...`")
     await asyncio.sleep(1)
-    await message.edit(content=f"MessageHelper's latency is **{round(client.latency * 1000)}**ms")
+    await message.edit(content=f"Ceres' latency is **{round(client.latency * 1000)}**ms")
 
 @client.command()
 async def aliases(ctx):
     embed=discord.Embed(title="Command Aliases", color=0x7289da)
-    embed.add_field(name="```m.help```", value="commands, cmd, cmds, cmnd, cmnds", inline=False)
-    embed.add_field(name="```m.ping```", value="latency", inline=False)
-    embed.add_field(name="```m.purge```", value="clear", inline=False)
-    embed.add_field(name="```m.lock```", value="close", inline=False)
-    embed.add_field(name="```m.unlock```", value="open", inline=False)
+    embed.add_field(name="```c.help```", value="commands, cmd, cmds, cmnd, cmnds", inline=False)
+    embed.add_field(name="```c.ping```", value="latency", inline=False)
+    embed.add_field(name="```c.purge```", value="clear", inline=False)
+    embed.add_field(name="```c.lock```", value="close", inline=False)
+    embed.add_field(name="```c.unlock```", value="open", inline=False)
     await ctx.send(embed=embed)
 
 @lock.error
