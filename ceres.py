@@ -11,7 +11,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Streaming(name="my bot cock.", url="https://www.twitch.tv/DRAPE5"))
+    await client.change_presence(activity=discord.Streaming(name="my big bot cock.", url="https://www.twitch.tv/DRAPE5"))
     print("Bot is ready!")
 
 @client.event
