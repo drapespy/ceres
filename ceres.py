@@ -26,7 +26,8 @@ async def help(ctx):
     embed.add_field(name="```c.ping```", value="Sends the bot's latency.", inline=True)
     embed.add_field(name="```c.aliases```", value="Shows the command aliases.", inline=True)
     embed.add_field(name="```c.purge (num)```", value="Deletes the given amount of messages.", inline=False)
-    embed.add_field(name="```c.lock```", value="Locks the current channel for @everyone.", inline=True)
+    embed.add_field(name="```c.slowmode```", value="Sets the slowmode of the channel.", inline=True)
+    embed.add_field(name="```c.lock```", value="Locks the current channel for @everyone.", inline=False)
     embed.add_field(name="```c.unlock```", value="unlocks the current channel for @everyone.", inline=True)
     await ctx.send(embed=embed)
 
@@ -70,6 +71,15 @@ async def purge(ctx, amount : int):
         return
     await ctx.channel.purge(limit=amount)
 
+@client.command(aliases=['sm'])
+@commands.has_permissions(manage_channels=True)
+async def slowmode(ctx, seconds: int):
+    if seconds > 21600:
+        await ctx.send("<:error:798368255991087125> `Limit = 21600`")
+        return
+    await ctx.channel.edit(slowmode_delay=seconds)
+    await ctx.send(f"Set the slowmode delay in this channel to {seconds} seconds!")
+
 @client.command()
 async def penis(ctx):
     await ctx.send("penids\nhttps://tenor.com/view/penis-music-gif-17978040")
@@ -86,6 +96,7 @@ async def aliases(ctx):
     embed.add_field(name="```c.help```", value="commands, cmd, cmds, cmnd, cmnds", inline=False)
     embed.add_field(name="```c.ping```", value="latency", inline=False)
     embed.add_field(name="```c.purge```", value="clear", inline=False)
+    embed.add_field(name="```c.slowmode```", value="sm", inline=False)
     embed.add_field(name="```c.lock```", value="close", inline=False)
     embed.add_field(name="```c.unlock```", value="open", inline=False)
     await ctx.send(embed=embed)
@@ -106,5 +117,12 @@ async def purge_error(ctx, error):
         await ctx.send("<:error:798368255991087125> `Please specify a number of messages to delete.`")
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("<:error:798368255991087125> `Missing required permissions: Manage Messages`")
+
+@slowmode.error
+async def slowmode_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("<:error:798368255991087125> `Please specify a number of seconds to set the slowmode to.`")
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("<:error:798368255991087125> `Missing required permissions: Manage Channels`")
 
 client.run('Nzg0MTY2MDE0NDc2NjE1Njkx.X8lVgg.f62CYt-37qsOxiihDM828TXuawM')
