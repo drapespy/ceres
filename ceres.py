@@ -75,9 +75,6 @@ async def purge(ctx, amount : int):
 @commands.has_permissions(manage_channels=True)
 async def slowmode(ctx, seconds: int):
     await ctx.channel.edit(slowmode_delay=seconds)
-    if seconds > 21600:
-        await ctx.send("<:error:798368255991087125> `Limit = 21600`")
-        return
     await ctx.send(f"<a:success:799436964406755329> Set the slowmode delay in this channel to `{seconds}` seconds!")
 
 @client.command()
