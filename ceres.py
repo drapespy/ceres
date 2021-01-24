@@ -28,6 +28,17 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("<:error:798368255991087125> `That is not a valid command.`")
 
+@client.command()
+async def join(ctx):
+        channel = ctx.message.author.voice.voice_channel
+        await client.join_voice_channel(channel)
+
+@client.command()
+async def leave(ctx):
+        server = ctx.message.server
+        voice_client = client.voice_client_int(server)
+        await voice_client.disconnect()
+
 @client.command(aliases=['commands', 'cmds', 'cmnds', 'cmd', 'cmnd'])
 async def help(ctx):
     embed=discord.Embed(title="", color=0x7289da)
