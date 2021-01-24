@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import datetime
-import asyncio
+from asyncio import sleep
 import random
 import json
 import os
@@ -10,9 +10,18 @@ client = commands.Bot(command_prefix = 'c.')
 client.remove_command("help")
 
 @client.event
-async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(client.guilds)} guilds | c.help"))  
+async def on_ready(): 
     print("Bot is ready!")
+
+async def ch_pr():
+    await client.wait_until_ready()
+    statuses = [f"{len(client.guilds)} guilds", "out for c.help", "dsc.gg/xydev for support!", ]
+    while not client.is_closed():
+        status = random.choice(statuses)
+        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=status))
+        await sleep(15) 
+client.loop.create_task(ch_pr())
+client.run
 
 @client.event
 async def on_command_error(ctx, error):
@@ -84,7 +93,7 @@ async def penis(ctx):
 @client.command(aliases=['latency'])
 async def ping(ctx):
     message = await ctx.send("`Pinging Server...`")
-    await asyncio.sleep(1)
+    await sleep(1)
     await message.edit(content=f"Ceres' latency is **{round(client.latency * 1000)}**ms")
 
 @client.command()
