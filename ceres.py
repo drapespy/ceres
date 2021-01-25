@@ -15,10 +15,10 @@ async def on_ready():
 
 async def ch_pr():
     await client.wait_until_ready()
-    statuses = [f"{len(client.guilds)} guilds.", "my prefix - c.", "support - dsc.gg/xydev", ]
+    statuses = [f"{len(client.get_all_members)} members"]
     while not client.is_closed():
         status = random.choice(statuses)
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=status))
+        await client.change_presence(activity=discord.Game(name=status))
         await sleep(10) 
 client.loop.create_task(ch_pr())
 client.run
