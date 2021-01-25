@@ -93,7 +93,7 @@ async def penis(ctx):
 @client.command(aliases=['latency'])
 async def ping(ctx):
     message = await ctx.send("`Pinging Server...`")
-    await sleep(1)
+    await sleep(0.5)
     await message.edit(content=f"Ceres' latency is **{round(client.latency * 1000)}**ms")
 
 @client.command()
