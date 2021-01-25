@@ -15,7 +15,7 @@ async def on_ready():
 
 async def ch_pr():
     await client.wait_until_ready()
-    statuses = [f"{len(client.guilds)} guilds", "prefix - c.", "in dsc.gg/xydev",]
+    statuses = [f"{len(client.guilds)} guilds", "in dsc.gg/xydev | c.help",]
     while not client.is_closed():
         status = random.choice(statuses)
         await client.change_presence(activity=discord.Game(name=status))
