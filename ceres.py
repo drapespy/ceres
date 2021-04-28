@@ -130,5 +130,3 @@ async def slowmode_error(ctx, error):
         await ctx.send("<:error:798368255991087125> `Please specify a number of seconds to set the slowmode to.`")
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("<:error:798368255991087125> `Missing required permissions: Manage Channels`")
-
-client.run('Nzg0MTY2MDE0NDc2NjE1Njkx.X8lVgg.f62CYt-37qsOxiihDM828TXuawM')
